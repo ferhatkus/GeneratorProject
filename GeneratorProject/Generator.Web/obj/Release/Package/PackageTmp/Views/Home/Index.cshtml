@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Web Project";
+}
+@model Generator.Web.ViewModels.PersonViewModel
+<style>
+    .card, .alert {
+        margin-top: 10px;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand mr-auto mr-lg-0" href="#">Web Project - Hoş Geldiniz</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Personel Listesi</h5>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th width="15%" scope="col">BusinesEntityID</th>
+                        <th width="15%" scope="col">Person Type</th>
+                        <th width="10%" scope="col">Title</th>
+                        <th width="10%" scope="col">First Name</th>
+                        <th width="10%" scope="col">Middle Name</th>
+                        <th width="10%" scope="col">Last Name</th>
+                        <th width="30%" scope="col">Job Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var person in Model.Persons)
+                        {
+                            <tr>
+                                <td>@person.BusinessEntityID</td>
+                                <td>@person.PersonType</td>
+                                <td>@person.Title</td>
+                                <td>@person.FirstName</td>
+                                <td>@person.MiddleName</td>
+                                <td>@person.LastName</td>
+                                <td>@person.Employee.JobTitle</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
